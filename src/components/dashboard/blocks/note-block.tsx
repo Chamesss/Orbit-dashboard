@@ -12,7 +12,7 @@ export default function NoteBlock({ note }: { note: Notes }) {
   const [isDone, setIsDone] = useState(Boolean(note.done))
 
   return (
-    <div className="mb-4 mt-2 last:mb-2">
+    <div className="mb-4 mt-2 w-full last:mb-2">
       <div className="flex w-full flex-row justify-between gap-3">
         <Checkbox
           className="mt-1"
@@ -30,9 +30,9 @@ export default function NoteBlock({ note }: { note: Notes }) {
               {note.keywords &&
                 note.keywords.map((keyword) => <Budge key={keyword} text={keyword} />)}
             </div>
-            <div className="flex flex-row items-center gap-1">
-              <Calendar2 variant="Bulk" size={20} className="-mt-0.5 text-ocean" />
-              <span className="text-sm text-ocean">{extractedDate}</span>
+            <div className="flex flex-row flex-nowrap items-center gap-1">
+              <Calendar2 variant="Bulk" size={20} className="-mt-0.5 shrink-0 text-ocean" />
+              <span className="text-nowrap text-sm text-ocean">{extractedDate}</span>
             </div>
           </div>
         </div>

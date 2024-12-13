@@ -1,4 +1,5 @@
 import { useAuth } from '@/hooks/useAuth'
+import { cn } from '@/lib/utils'
 import { EllipsisVertical } from 'lucide-react'
 import {
   DropdownMenu,
@@ -7,17 +8,17 @@ import {
   DropdownMenuTrigger
 } from '../ui/dropdown-menu'
 
-export default function UserDisplay() {
+export default function UserDisplay({ expend }: { expend: boolean }) {
   const { user, loading } = useAuth()
 
   if (loading) return <PictureLoading />
   if (!user) return <div>Not logged</div>
 
   return (
-    <div className="flex w-full items-center justify-between py-2 xl:px-4">
+    <div className="flex w-full items-center justify-between overflow-hidden py-2 xl:px-4">
       <div className="flex shrink-0 items-center">
         <img src={user.picture} alt="avatar" className="h-10 w-10 rounded-full object-cover" />
-        <div className="ml-0 hidden -space-y-1 xl:ml-4 xl:block">
+        <div className={cn('ml-4 -space-y-1 xl:block', expend && '')}>
           <p className="text-base font-semibold capitalize">
             {user.firstname} {user.lastname}
           </p>
@@ -26,10 +27,7 @@ export default function UserDisplay() {
       </div>
       <DropdownMenu>
         <DropdownMenuTrigger className="focus:outline-none">
-          <EllipsisVertical
-            className="hidden cursor-pointer hover:text-black/60 xl:block"
-            size={20}
-          />
+          <EllipsisVertical className="cursor-pointer hover:text-black/60" size={20} />
         </DropdownMenuTrigger>
         <DropdownMenuContent className="-translate-x-2 translate-y-2" align="center">
           <DropdownMenuItem className="cursor-pointer font-medium">

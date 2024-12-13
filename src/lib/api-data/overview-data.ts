@@ -4,8 +4,8 @@ export const weeklyOverviewData: OverviewData = {
   onLeave: 12,
   atOffice: 212,
   onRemote: 12,
-  prevEmployees: 220,
-  prevOnLeave: 10,
+  prevEmployees: 224,
+  prevOnLeave: 14,
   prevAtOffice: 210,
   prevOnRemote: 10
 }

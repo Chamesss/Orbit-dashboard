@@ -17,7 +17,7 @@ function Notes() {
   }, [])
 
   return (
-    <div>
+    <div className="w-full">
       {!loading &&
         (notes.length > 0 ? (
           notes.map((note) => <NoteBlock key={note.id} note={note} />)

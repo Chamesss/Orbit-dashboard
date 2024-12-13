@@ -41,12 +41,12 @@ function Overview({ view }: { view: string }) {
   if (!overviewData) return null
 
   return (
-    <div className="grid w-full grid-cols-4 gap-4">
+    <div className="grid w-full grid-cols-1 gap-2 xs:grid-cols-2 md:grid-cols-4 lg:gap-4">
       <OverviewBlock
         Icon={Profile2User}
         bgColor="bg-coldOcean dark:bg-ocean/20"
         iconBgColor="bg-ocean"
-        textColor="text-coldOcean"
+        textColor="text-coldOcean stroke-ocean"
         title={'employees'}
         count={overviewData.employees}
         prevCount={overviewData.prevEmployees}
@@ -57,7 +57,7 @@ function Overview({ view }: { view: string }) {
         Icon={Archive}
         bgColor="bg-coldWood dark:bg-wood/20"
         iconBgColor="bg-wood"
-        textColor="text-coldWood"
+        textColor="text-coldWood stroke-wood"
         title={'on leave'}
         count={overviewData.onLeave}
         prevCount={overviewData.prevOnLeave}
@@ -68,7 +68,7 @@ function Overview({ view }: { view: string }) {
         Icon={Buliding}
         bgColor="bg-coldForest dark:bg-forest/20"
         iconBgColor="bg-forest"
-        textColor="text-coldForest"
+        textColor="text-coldForest stroke-forest"
         title={'at office'}
         count={overviewData.atOffice}
         prevCount={overviewData.prevAtOffice}
@@ -79,7 +79,7 @@ function Overview({ view }: { view: string }) {
         Icon={House}
         bgColor="bg-coldGalaxy dark:bg-galaxy/20"
         iconBgColor="bg-galaxy"
-        textColor="text-coldGalaxy"
+        textColor="text-coldGalaxy stroke-galaxy"
         title={'remote'}
         count={overviewData.onRemote}
         prevCount={overviewData.prevOnRemote}

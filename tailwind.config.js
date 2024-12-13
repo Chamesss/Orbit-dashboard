@@ -24,6 +24,9 @@ export default {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)'
       },
+      screens: {
+        xs: '375px'
+      },
       colors: {
         ocean: '#3573E4',
         coldOcean: '#F1F5FD',

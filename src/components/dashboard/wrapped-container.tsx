@@ -47,7 +47,7 @@ export default function WrappedContainer({
           </div>
         )}
       </div>
-      <div className="relative flex min-h-[8rem] w-full items-center justify-start p-4">
+      <div className="relative flex min-h-[8rem] w-full items-center justify-start p-2 lg:p-4">
         {children}
       </div>
     </div>

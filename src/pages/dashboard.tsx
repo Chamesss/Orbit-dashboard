@@ -16,8 +16,8 @@ export default function Dashboard() {
   return (
     <div className="maw-h-screen relative flex h-full w-full flex-col justify-between bg-muted">
       <Header />
-      <div className="scrollbar grid h-full grid-cols-6 gap-6 overflow-auto p-6">
-        <div className="col-span-4 flex flex-col gap-6">
+      <div className="scrollbar grid h-full grid-cols-1 overflow-auto p-4 lg:grid-cols-6 lg:gap-6 lg:p-6">
+        <div className="flex flex-col gap-6 lg:col-span-4">
           <WrappedContainer
             changeableView={{
               isChangeable: true,
@@ -35,7 +35,7 @@ export default function Dashboard() {
             <Schedules />
           </WrappedContainer>
         </div>
-        <div className="col-span-2 flex flex-col gap-6">
+        <div className="col-span-2 mt-6 flex flex-col gap-6 lg:mt-0">
           <WrappedContainer title="Notes">
             <Notes />
           </WrappedContainer>
