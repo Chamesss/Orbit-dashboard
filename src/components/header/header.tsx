@@ -56,7 +56,7 @@ export default function Header() {
               {user ? (
                 <span className="inline-block text-wrap capitalize">{user.firstname}</span>
               ) : (
-                <div className="ml-2 mt-1 inline-block h-4 w-16 animate-pulse rounded bg-gray-300" />
+                <div className="ml-2 mt-1 inline-block h-4 w-16 animate-pulse rounded bg-neutral-100 dark:bg-neutral-600" />
               )}
             </div>
 
