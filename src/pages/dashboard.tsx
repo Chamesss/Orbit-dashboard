@@ -14,7 +14,7 @@ export default function Dashboard() {
   const [offlineUsers, setOfflineUsers] = useState<number | undefined>()
 
   return (
-    <div className="maw-h-screen flex h-full w-full flex-col justify-between bg-muted">
+    <div className="maw-h-screen relative flex h-full w-full flex-col justify-between bg-muted">
       <Header />
       <div className="scrollbar grid h-full grid-cols-6 gap-6 overflow-auto p-6">
         <div className="col-span-4 flex flex-col gap-6">

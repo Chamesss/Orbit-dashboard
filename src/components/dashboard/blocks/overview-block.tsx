@@ -1,5 +1,7 @@
 import { cn } from '@/lib/utils'
 import type { Icon } from 'iconsax-react'
+import { motion } from 'motion/react'
+import { useEffect, useState } from 'react'
 
 type Props = {
   Icon: Icon
@@ -10,6 +12,7 @@ type Props = {
   count: number
   prevCount: number
   duration: string
+  index: number
 }
 
 export default function OverviewBlock({
@@ -20,21 +23,35 @@ export default function OverviewBlock({
   title,
   count,
   prevCount,
-  duration
+  duration,
+  index
 }: Props) {
+  const [startAnimation, setStartAnimation] = useState<number>()
+
+  useEffect(() => {
+    setStartAnimation(() => Math.random())
+  }, [duration])
+
   return (
-    <div
+    <motion.div
+      key={startAnimation}
+      initial={{
+        opacity: 0,
+        y: 15
+      }}
+      transition={{ delay: index * 0.1 }}
+      animate={{ opacity: 1, y: 0 }}
       className={cn('col-span-1 flex flex-col items-start justify-between rounded-lg p-6', bgColor)}
     >
       <div className={cn('my-2 rounded-lg p-2.5', iconBgColor)}>
         <Icon variant="Bulk" size="26" className={cn(textColor)} />
       </div>
       <div className="mt-2 flex flex-col gap-1">
-        <div className="flex flex-row items-baseline gap-1.5">
+        <div className="flex flex-row flex-wrap items-baseline gap-1.5">
           <p className="text-xl font-semibold">{count}</p>
           <p className="text-base font-medium">{title}</p>
         </div>
-        <p className="text-sm text-gray-500">
+        <p className="text-sm text-gray-500 dark:text-gray-400">
           <span className="font-semibold">
             {count > prevCount
               ? `+${count - prevCount}`
@@ -45,6 +62,6 @@ export default function OverviewBlock({
           last {duration}
         </p>
       </div>
-    </div>
+    </motion.div>
   )
 }

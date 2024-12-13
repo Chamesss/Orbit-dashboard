@@ -73,7 +73,7 @@
 
 @layer utilities {
   .scrollbar::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
     height: 20px;
   }
 
@@ -83,9 +83,8 @@
   }
 
   .scrollbar::-webkit-scrollbar-thumb {
-    background: #90b6fc;
+    background: #c4c4c4;
     border-radius: 100vh;
-    border: 2px solid #f6f7ed;
   }
 
   .scrollbar::-webkit-scrollbar-thumb:hover {
@@ -95,5 +94,15 @@
 
   .scrollbar::-webkit-scrollbar-thumb:active {
     cursor: grabbing;
+  }
+
+  /* dark mode scrollbar */
+
+  .dark .scrollbar::-webkit-scrollbar-track {
+    background: #1a1a1a;
+  }
+
+  .dark .scrollbar::-webkit-scrollbar-thumb {
+    background: #5f5f5f;
   }
 }

@@ -22,12 +22,20 @@ export default function WrappedContainer({
   totalCount
 }: WrappedContainerProps) {
   return (
-    <div className={cn('overflow-hidden rounded-2xl border border-input bg-white', className)}>
+    <div
+      className={cn(
+        'overflow-hidden rounded-2xl border border-input bg-white dark:bg-neutral-700',
+        className
+      )}
+    >
       <div className="flex h-[4rem] flex-row items-center justify-between border-b border-input px-6">
         <p className="h-fit font-semibold">
           {title}
           {totalCount && (
-            <span className="ml-1 text-xs font-medium text-gray-500"> ({totalCount})</span>
+            <span className="ml-1 text-xs font-medium text-gray-500 dark:text-gray-400">
+              {' '}
+              ({totalCount})
+            </span>
           )}
         </p>
         {changeableView?.isChangeable ? (

@@ -9,8 +9,8 @@ export default function ViewChanger({ fn, state }: { fn: (view: TView) => void; 
         <p
           key={view}
           className={cn(
-            'cursor-pointer capitalize transition-all hover:text-ocean/80',
-            state === view && 'text-ocean'
+            'cursor-pointer capitalize transition-all hover:text-ocean/80 dark:text-gray-400',
+            state === view && 'text-ocean dark:text-ocean'
           )}
           onClick={() => fn(view as TView)}
         >

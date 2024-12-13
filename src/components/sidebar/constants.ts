@@ -22,7 +22,7 @@ export const sidebarItemsMain: SidebarItems[] = [
   {
     title: 'Dashboard',
     Icon: Category2,
-    url: '',
+    url: '/',
     auth: false
   }
 ]
@@ -31,13 +31,13 @@ export const sidebarItemsPeople: SidebarItems[] = [
   {
     title: 'Team members',
     Icon: Profile2User,
-    url: '',
+    url: '/team-members',
     auth: false
   },
   {
     title: 'Orientation',
     Icon: UserAdd,
-    url: '',
+    url: '/orientation',
     auth: false
   },
   {
@@ -49,43 +49,43 @@ export const sidebarItemsPeople: SidebarItems[] = [
   {
     title: 'Hours monitoring',
     Icon: Clock,
-    url: '',
+    url: '/hours-monitoring',
     auth: false
   },
   {
     title: 'Rewards',
     Icon: MedalStar,
-    url: '',
+    url: '/rewards',
     auth: false
   },
   {
     title: 'Expenditures',
     Icon: Receipt21,
-    url: '',
+    url: '/expenditures',
     auth: false
   },
   {
     title: 'Expense estimator',
     Icon: Calculator,
-    url: '',
+    url: '/expense-estimator',
     auth: false
   },
   {
     title: 'Remuneration',
     Icon: MagicStar,
-    url: '',
+    url: '/remuneration',
     auth: false
   },
   {
     title: 'Inquiries',
     Icon: DirectboxReceive,
-    url: '',
+    url: '/inquiries',
     auth: false
   },
   {
     title: 'Inputs',
     Icon: Messages1,
-    url: '',
+    url: '/inputs',
     auth: false
   }
 ]
@@ -94,31 +94,31 @@ export const sidebarItemsPayments: SidebarItems[] = [
   {
     title: 'Salaries',
     Icon: DollarCircle,
-    url: '',
+    url: '/salaries',
     auth: false
   },
   {
     title: 'Contractor bills',
     Icon: Cards,
-    url: '',
+    url: '/contractor-bills',
     auth: false
   },
   {
     title: 'Service Bills',
     Icon: ReceiptText,
-    url: '',
+    url: '/service-bills',
     auth: false
   },
   {
     title: 'Invoicing',
     Icon: TableDocument,
-    url: '',
+    url: '/invoicing',
     auth: false
   },
   {
     title: 'Financial methods',
     Icon: Wallet,
-    url: '',
+    url: '/financial-methods',
     auth: false
   }
 ]
@@ -127,7 +127,7 @@ export const sidebarItemsSetting: SidebarItems[] = [
   {
     title: 'Company',
     Icon: Setting,
-    url: '',
+    url: '/company',
     auth: false
   }
 ]

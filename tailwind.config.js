@@ -7,7 +7,18 @@ export default {
       fontSize: {
         xxs: '0.7rem'
       },
+      keyframes: {
+        'scale-once': {
+          '0%': { transform: 'scale(0.75)' },
+          '40%': { transform: 'scale(1.1)' },
+          '70%': { transform: 'scale(0.9)' },
+          '100%, 90%': { transform: 'scale(1)' }
+        }
+      },
 
+      animation: {
+        'scale-once': 'scale-once 0.3s'
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',

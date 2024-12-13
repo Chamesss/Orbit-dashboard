@@ -1,7 +1,7 @@
 import { useTheme } from '@/hooks/useTheme'
-//import { ToggleTheme } from '../themes/toggle-theme'
-import { EllipsisVertical } from 'lucide-react'
-import React from 'react'
+import { cn } from '@/lib/utils'
+import { HambergerMenu } from 'iconsax-react'
+import React, { useState } from 'react'
 import UserDisplay from '../user-display/user-display'
 import {
   sidebarItemsMain,
@@ -13,52 +13,92 @@ import SidebarItem from './sidebar-item'
 
 export default function SideBar() {
   const { isDarkMode } = useTheme()
-  const user = {
-    firstname: 'John',
-    email: 'test@mail.com',
-    picture: './assets/static-user.png',
-    role: 'admin',
-    _id: '1',
-    lastname: 'Doe'
-  }
+  const [expend, setExpend] = useState(false)
+
   return (
-    <div className="flex h-full max-h-screen w-[20%] flex-col justify-between bg-white dark:bg-black">
-      <div className="p-4">
+    <div
+      className={cn(
+        'z-[40] flex h-full max-h-screen w-[3.5rem] flex-col justify-between bg-white transition-all dark:bg-stone-900 xl:relative xl:w-[20%]',
+        { 'w-[17.5rem]': expend }
+      )}
+    >
+      <div className="flex w-full flex-row justify-between px-2 py-2.5 xl:px-4 xl:py-4">
         <img
-          className="h-10 w-auto object-contain"
+          className={cn(
+            'hidden h-7 w-auto object-contain xl:block xl:h-10',
+            expend && 'block w-fit'
+          )}
           src={isDarkMode ? './logo-white.svg' : './logo-blue.svg'}
           alt="logo"
         />
+        <HambergerMenu
+          onClick={() => setExpend((prev) => !prev)}
+          size={25}
+          className={cn('block h-7 w-full self-center xl:hidden', expend && 'w-fit')}
+        />
       </div>
 
-      <div className="scrollbar flex w-full flex-col gap-1 overflow-auto p-4">
+      <div className="scrollbar flex h-full w-full flex-col gap-1 overflow-y-auto overflow-x-hidden px-2 py-4 xl:px-4">
         {sidebarItemsMain.map((item: SidebarItems) => (
-          <SidebarItem key={item.title} item={item} />
+          <SidebarItem expend={expend} key={item.title} item={item} />
         ))}
-        <SectionTitle>people</SectionTitle>
+        <GlobalSectionDivider expend={expend}>people</GlobalSectionDivider>
         {sidebarItemsPeople.map((item: SidebarItems) => (
-          <SidebarItem key={item.title} item={item} />
+          <SidebarItem expend={expend} key={item.title} item={item} />
         ))}
-        <SectionTitle>payments</SectionTitle>
+        <GlobalSectionDivider expend={expend}>payments</GlobalSectionDivider>
         {sidebarItemsPayments.map((item: SidebarItems) => (
-          <SidebarItem key={item.title} item={item} />
+          <SidebarItem expend={expend} key={item.title} item={item} />
         ))}
-        <SectionTitle>company</SectionTitle>
+        <GlobalSectionDivider expend={expend}>company</GlobalSectionDivider>
         {sidebarItemsSetting.map((item: SidebarItems) => (
-          <SidebarItem key={item.title} item={item} />
+          <SidebarItem expend={expend} key={item.title} item={item} />
         ))}
       </div>
 
-      <div className="flex flex-row items-center justify-between border border-neutral-100 px-2">
-        {/* {isDarkMode ? 'Dark Mode' : 'Light Mode'}
-        <ToggleTheme /> */}
-        <UserDisplay user={user} />
-        <EllipsisVertical className="cursor-pointer hover:text-black/60" size={20} />
+      <div className="flex flex-row items-center justify-between border border-neutral-100 px-2 dark:border-neutral-800">
+        <UserDisplay />
       </div>
     </div>
   )
 }
 
-const SectionTitle = ({ children }: { children: React.ReactNode }) => (
-  <p className="text-xxs my-4 font-semibold uppercase">{children}</p>
+const GlobalSectionDivider = ({
+  expend,
+  children
+}: {
+  expend: boolean
+  children: React.ReactNode
+}) => (
+  <div className="flex w-full flex-row justify-between">
+    <hr
+      className={cn(
+        'my-4 ml-1 w-full border opacity-100 xl:hidden',
+        expend && 'my-0 w-0 border-0 opacity-0'
+      )}
+    />
+    <p
+      className={cn(
+        'my-0 h-0 w-0 text-xxs font-semibold uppercase opacity-0 xl:block',
+        expend && 'my-4 !block h-full w-full opacity-100'
+      )}
+    >
+      {children}
+    </p>
+  </div>
 )
+
+// const SectionDivider = ({ expend }: { expend: boolean }) => (
+//   <hr
+//     className={cn(
+//       'my-2 border opacity-100 transition-all xl:hidden',
+//       expend && 'my-0 border-0 opacity-0'
+//     )}
+//   />
+// )
+
+// const SectionTitle = ({ children, expend }: { children: React.ReactNode; expend: boolean }) => (
+//   <p className={cn('my-4 hidden text-xxs font-semibold uppercase xl:block', expend && '!block')}>
+//     {children}
+//   </p>
+// )
