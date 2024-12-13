@@ -25,7 +25,7 @@ function Notes() {
           <p>No notes found</p>
         ))}
       {loading && (
-        <div className="absolute left-1/2 top-1/2 flex h-full w-full -translate-x-1/2 -translate-y-1/2 items-center justify-center backdrop-blur-sm">
+        <div className="absolute left-1/2 top-1/2 flex h-full w-full -translate-x-1/2 -translate-y-1/2 items-center justify-center">
           <Loading />
         </div>
       )}

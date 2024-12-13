@@ -1,5 +1,7 @@
 import { cn } from '@/lib/utils'
 import { ChevronRight } from 'lucide-react'
+import { useState } from 'react'
+import PopUp from '../ui/pop-up'
 import ViewChanger from './view-changer'
 
 type WrappedContainerProps = {
@@ -21,6 +23,7 @@ export default function WrappedContainer({
   changeableView,
   totalCount
 }: WrappedContainerProps) {
+  const [selected, setSelected] = useState<boolean | null>(false)
   return (
     <div
       className={cn(
@@ -42,7 +45,9 @@ export default function WrappedContainer({
           <ViewChanger fn={changeableView.fn} state={changeableView.state} />
         ) : (
           <div className="flex cursor-pointer flex-row gap-1 text-sm text-ocean hover:underline">
-            <p className="font-semibold">View all</p>
+            <p onClick={() => setSelected(true)} className="font-semibold">
+              View all
+            </p>
             <ChevronRight size={20} />
           </div>
         )}
@@ -50,6 +55,11 @@ export default function WrappedContainer({
       <div className="relative flex min-h-[8rem] w-full items-center justify-start p-2 lg:p-4">
         {children}
       </div>
+      <PopUp selected={selected} setSelected={setSelected}>
+        <p className="h-fit font-semibold">{title}</p>
+        <hr className="my-4" />
+        <div className="relative min-h-[10rem]">{children}</div>
+      </PopUp>
     </div>
   )
 }

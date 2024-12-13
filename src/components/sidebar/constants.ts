@@ -43,7 +43,7 @@ export const sidebarItemsPeople: SidebarItems[] = [
   {
     title: 'Leave',
     Icon: Calendar,
-    url: '',
+    url: '/leave',
     auth: false
   },
   {

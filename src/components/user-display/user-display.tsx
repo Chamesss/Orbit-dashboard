@@ -40,8 +40,8 @@ export default function UserDisplay({ expend }: { expend: boolean }) {
 }
 
 const PictureLoading = () => (
-  <div className="flex items-center justify-between px-4 py-2">
-    <div className="flex items-center">
+  <div className="flex w-full items-center justify-between overflow-hidden py-2 xl:px-4">
+    <div className="flex shrink-0 items-center">
       <div className="h-10 w-10 rounded-full bg-neutral-100" />
       <div className="ml-4 space-y-1">
         <div className="h-2 w-20 rounded bg-neutral-100" />

@@ -21,7 +21,7 @@ import Notifications from './notifications'
 
 export default function Header() {
   const greeting = new Date().getHours() < 12 ? 'Good morning' : 'Good afternoon'
-  const { user } = useAuth() as { user: User }
+  const { user } = useAuth()
   const { isDarkMode, toggleTheme } = useTheme()
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const styles =
@@ -48,10 +48,18 @@ export default function Header() {
             className={cn('mr-2 block h-5 w-5 shrink-0 self-center md:hidden', 'w-fit')}
           />
           <div>
-            <p className="-space-y-1 text-base font-semibold text-ocean md:text-xl">
-              <span className="text-nowrap">{greeting},</span>{' '}
-              <span className="text-wrap capitalize">{user.firstname}</span>
-            </p>
+            <div className="gap-1 -space-y-1 space-x-1 font-semibold text-ocean md:text-xl">
+              <span className="text-nowrap">
+                {greeting}
+                {user && ','}
+              </span>
+              {user ? (
+                <span className="inline-block text-wrap capitalize">{user.firstname}</span>
+              ) : (
+                <div className="ml-2 mt-1 inline-block h-4 w-16 animate-pulse rounded bg-gray-300" />
+              )}
+            </div>
+
             <p className="text-medium hidden text-sm text-gray-500 sm:block">
               Let's take a look at today's current events
             </p>

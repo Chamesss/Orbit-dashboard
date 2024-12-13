@@ -1,12 +1,28 @@
 import { cn } from '@/lib/utils'
+import { useNavigate } from 'react-router'
 
-export default function SidebarItem({ item, expend }: { item: SidebarItems; expend: boolean }) {
+export default function SidebarItem({
+  item,
+  expend,
+  setSidebarOpen
+}: {
+  item: SidebarItems
+  expend: boolean
+  setSidebarOpen?: React.Dispatch<React.SetStateAction<boolean>>
+}) {
   const Icon = item.Icon
 
   const isPathActive = item.url === window.location.pathname
+  const navigate = useNavigate()
 
   return (
     <ul
+      onClick={() => {
+        if (setSidebarOpen) setSidebarOpen(false)
+        setTimeout(() => {
+          navigate(item.url)
+        }, 0)
+      }}
       className={cn(
         'group w-fit cursor-pointer rounded-xl p-2 transition-all hover:bg-coldOcean hover:dark:bg-ocean/20 xl:w-full',
         { 'bg-coldOcean dark:bg-ocean/20': isPathActive },

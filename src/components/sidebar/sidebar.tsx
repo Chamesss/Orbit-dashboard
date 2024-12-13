@@ -56,19 +56,39 @@ export default function SideBar({
 
       <div className="scrollbar flex h-full w-full flex-col gap-1 overflow-y-auto overflow-x-hidden px-2 py-4 xl:px-4">
         {sidebarItemsMain.map((item: SidebarItems) => (
-          <SidebarItem expend={expend} key={item.title} item={item} />
+          <SidebarItem
+            setSidebarOpen={setSidebarOpen}
+            expend={expend}
+            key={item.title}
+            item={item}
+          />
         ))}
         <GlobalSectionDivider expend={expend}>people</GlobalSectionDivider>
         {sidebarItemsPeople.map((item: SidebarItems) => (
-          <SidebarItem expend={expend} key={item.title} item={item} />
+          <SidebarItem
+            setSidebarOpen={setSidebarOpen}
+            expend={expend}
+            key={item.title}
+            item={item}
+          />
         ))}
         <GlobalSectionDivider expend={expend}>payments</GlobalSectionDivider>
         {sidebarItemsPayments.map((item: SidebarItems) => (
-          <SidebarItem expend={expend} key={item.title} item={item} />
+          <SidebarItem
+            setSidebarOpen={setSidebarOpen}
+            expend={expend}
+            key={item.title}
+            item={item}
+          />
         ))}
         <GlobalSectionDivider expend={expend}>company</GlobalSectionDivider>
         {sidebarItemsSetting.map((item: SidebarItems) => (
-          <SidebarItem expend={expend} key={item.title} item={item} />
+          <SidebarItem
+            setSidebarOpen={setSidebarOpen}
+            expend={expend}
+            key={item.title}
+            item={item}
+          />
         ))}
       </div>
 
