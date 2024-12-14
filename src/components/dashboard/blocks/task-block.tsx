@@ -1,6 +1,13 @@
 import Avatar from '@/components/ui/avatar'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger
+} from '@/components/ui/dropdown-menu'
 import { remainingDays } from '@/lib/date-operations/calculate-days-left'
 import { cn } from '@/lib/utils'
+import { EllipsisVertical } from 'lucide-react'
 
 export default function TaskBlock({ task }: { task: TasksWithIcons }) {
   const deadline = remainingDays(task.deadline)
@@ -13,7 +20,7 @@ export default function TaskBlock({ task }: { task: TasksWithIcons }) {
             <task.Icon variant="Bulk" className="h-5 w-5 text-ocean" />
           </div>
           <div>
-            <h4 className="line-clamp-1 text-base font-semibold group-hover:underline dark:text-gray-200">
+            <h4 className="line-clamp-1 text-sm font-semibold group-hover:underline dark:text-gray-200 xs:text-base">
               {task.title}
             </h4>
             <p className="line-clamp-2 text-sm text-gray-500 dark:text-gray-400">
@@ -38,6 +45,28 @@ export default function TaskBlock({ task }: { task: TasksWithIcons }) {
               lastname={task.assignedUser.lastname}
             />
           </div>
+          <DropdownMenu>
+            <DropdownMenuTrigger className="focus:outline-none">
+              <EllipsisVertical
+                className="cursor-pointer hover:text-black/60 dark:hover:text-white/60"
+                size={20}
+              />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent
+              sideOffset={10}
+              alignOffset={-10}
+              className="-translate-x-2 translate-y-2"
+              side="top"
+              align="end"
+            >
+              <DropdownMenuItem className="cursor-pointer font-medium">
+                <p>Edit</p>
+              </DropdownMenuItem>
+              <DropdownMenuItem className="cursor-pointer font-medium">
+                <p className="text-rose-400 transition-all hover:text-rose-500">Delete</p>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
     </div>

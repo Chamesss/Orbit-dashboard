@@ -27,7 +27,10 @@ export default function UserDisplay({ expend }: { expend: boolean }) {
       </div>
       <DropdownMenu>
         <DropdownMenuTrigger className="focus:outline-none">
-          <EllipsisVertical className="cursor-pointer hover:text-black/60" size={20} />
+          <EllipsisVertical
+            className="cursor-pointer hover:text-black/60 dark:hover:text-white/60"
+            size={20}
+          />
         </DropdownMenuTrigger>
         <DropdownMenuContent className="-translate-x-2 translate-y-2" align="center">
           <DropdownMenuItem className="cursor-pointer font-medium">

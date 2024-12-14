@@ -46,7 +46,7 @@ export default function SideBar({
           }}
           size={25}
           className={cn(
-            'block h-7 w-full self-center xl:hidden',
+            'block h-7 w-full cursor-pointer self-center rounded-xl px-1.5 py-1 transition-all hover:bg-black/5 hover:dark:bg-white/10 xl:hidden',
             expend && 'w-fit',
             sidebarOpen && 'hidden'
           )}

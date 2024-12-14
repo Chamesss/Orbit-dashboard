@@ -12,7 +12,7 @@ export default function NoteBlock({ note }: { note: Notes }) {
   const [isDone, setIsDone] = useState(Boolean(note.done))
 
   return (
-    <div className="mb-4 mt-2 w-full last:mb-2">
+    <div className="mb-4 mt-2 w-full px-2 last:mb-2">
       <div className="flex w-full flex-row justify-between gap-3">
         <Checkbox
           className="mt-1"

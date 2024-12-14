@@ -15,6 +15,7 @@ function Overview({ view }: { view: string }) {
   // Simulate API call
   useEffect(() => {
     setLoading(true)
+    setOverviewData(null)
     setTimeout(() => {
       switch (view) {
         case 'week':
@@ -26,12 +27,15 @@ function Overview({ view }: { view: string }) {
         case 'year':
           setOverviewData(yearlyOverviewData)
           break
+        default:
+          setOverviewData(null)
+          break
       }
       setLoading(false)
     }, 1000)
   }, [view])
 
-  if (loading && !overviewData)
+  if (loading)
     return (
       <div className="flex h-full w-full items-center justify-center">
         <Loading />
@@ -86,11 +90,6 @@ function Overview({ view }: { view: string }) {
         duration={overviewData.duration}
         index={3}
       />
-      {loading && (
-        <div className="absolute left-1/2 top-1/2 flex h-full w-full -translate-x-1/2 -translate-y-1/2 items-center justify-center backdrop-blur-sm">
-          <Loading />
-        </div>
-      )}
     </div>
   )
 }

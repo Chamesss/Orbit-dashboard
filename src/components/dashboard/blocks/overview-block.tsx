@@ -1,7 +1,6 @@
 import { cn } from '@/lib/utils'
 import type { Icon } from 'iconsax-react'
 import { motion } from 'motion/react'
-import { useEffect, useState } from 'react'
 import { TrendChart } from './trend-chart'
 
 type Props = {
@@ -16,7 +15,7 @@ type Props = {
   index: number
 }
 
-export default function OverviewBlock({
+function OverviewBlock({
   Icon,
   iconBgColor,
   bgColor,
@@ -27,15 +26,8 @@ export default function OverviewBlock({
   duration,
   index
 }: Props) {
-  const [startAnimation, setStartAnimation] = useState<number>()
-
-  useEffect(() => {
-    setStartAnimation(() => Math.random())
-  }, [duration])
-
   return (
     <motion.div
-      key={startAnimation}
       initial={{
         opacity: 0,
         y: 15
@@ -71,3 +63,5 @@ export default function OverviewBlock({
     </motion.div>
   )
 }
+
+export default OverviewBlock
