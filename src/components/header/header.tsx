@@ -45,7 +45,10 @@ export default function Header() {
         <div className="flex flex-row items-center">
           <HambergerMenu
             onClick={() => setSidebarOpen((prev) => !prev)}
-            className={cn('mr-2 block h-5 w-5 shrink-0 self-center md:hidden', 'w-fit')}
+            className={cn(
+              'mr-2 block h-5 w-5 shrink-0 cursor-pointer self-center hover:opacity-75 md:hidden',
+              'w-fit'
+            )}
           />
           <div>
             <div className="gap-1 -space-y-1 space-x-1 font-semibold text-ocean md:text-xl">

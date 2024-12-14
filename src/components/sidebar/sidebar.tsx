@@ -51,7 +51,12 @@ export default function SideBar({
             sidebarOpen && 'hidden'
           )}
         />
-        {setSidebarOpen && <X onClick={() => setSidebarOpen(false)} />}
+        {setSidebarOpen && (
+          <X
+            className="h-4 cursor-pointer hover:opacity-75"
+            onClick={() => setSidebarOpen(false)}
+          />
+        )}
       </div>
 
       <div className="scrollbar flex h-full w-full flex-col gap-1 overflow-y-auto overflow-x-hidden px-2 py-4 xl:px-4">

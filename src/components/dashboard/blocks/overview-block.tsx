@@ -1,6 +1,7 @@
 import { cn } from '@/lib/utils'
 import type { Icon } from 'iconsax-react'
 import { motion } from 'motion/react'
+import { memo } from 'react'
 import { TrendChart } from './trend-chart'
 
 type Props = {
@@ -28,6 +29,7 @@ function OverviewBlock({
 }: Props) {
   return (
     <motion.div
+      key={duration}
       initial={{
         opacity: 0,
         y: 15
@@ -64,4 +66,4 @@ function OverviewBlock({
   )
 }
 
-export default OverviewBlock
+export default memo(OverviewBlock)

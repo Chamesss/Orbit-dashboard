@@ -29,7 +29,10 @@ export default function PopUp({
             className="relative max-h-[90vh] w-full max-w-2xl overflow-auto rounded-lg bg-white p-4 shadow-xl dark:bg-neutral-700 sm:p-4 md:p-6"
           >
             {children}
-            <X onClick={() => setSelected(null)} className="absolute right-4 top-5 h-4" />
+            <X
+              onClick={() => setSelected(null)}
+              className="absolute right-4 top-5 h-4 cursor-pointer hover:opacity-75"
+            />
           </motion.div>
         </motion.div>
       )}
